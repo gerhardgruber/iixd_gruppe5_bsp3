@@ -2,16 +2,20 @@ import * as React from 'react';
 import { hot } from 'react-hot-loader';
 import { Router, Route, Switch } from 'react-router';
 import { Root } from 'app/containers/Root';
-import { Spendierhousn } from 'app/containers/Spendierhousn';
+import { Dashboard } from 'app/containers/Dashboard';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import NewEntry from './containers/NewEntry';
+import Profile from './containers/Profile';
 
 // render react DOM
 export const App = hot(module)(({ history }) => (
   <Root>
     <Router history={history}>
       <Switch>
-        <Route path="/" component={Spendierhousn} />
+        <Route path="/new" component={NewEntry} />
+        <Route path="/profile" component={Profile} />
+        <Route exact path="/" component={Dashboard} />
       </Switch>
     </Router>
   </Root>

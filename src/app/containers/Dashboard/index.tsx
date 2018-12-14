@@ -6,26 +6,26 @@ import {
   STORE_ROUTER,
 } from 'app/constants';
 
-export interface SpendierhousnProps extends RouteComponentProps<any> {
+export interface DashboardProps extends RouteComponentProps<any> {
   /** MobX Stores will be injected via @inject() **/
   // [STORE_ROUTER]: RouterStore;
   // [STOURE_TODO]: TodoStore;
 }
 
-export interface SpendierhousnState {
+export interface DashboardState {
 }
 
 @inject(STORE_ROUTER)
 @observer
-export class Spendierhousn extends React.Component<SpendierhousnProps, SpendierhousnState> {
-  constructor(props: SpendierhousnProps, context: any) {
+export class Dashboard extends React.Component<DashboardProps, DashboardState> {
+  constructor(props: DashboardProps, context: any) {
     super(props, context);
   }
 
   render() {
     return (
       <div>
-        logged in!
+        Dashboard
 
         <Button onClick={() => this.props[STORE_ROUTER].logout() }>logout</Button>
       </div>

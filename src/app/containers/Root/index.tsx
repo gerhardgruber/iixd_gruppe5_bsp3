@@ -5,6 +5,8 @@ import { Button } from 'reactstrap';
 import {
   STORE_ROUTER,
 } from 'app/constants';
+import LoggedInHeader from 'app/components/LoggedInHeader';
+import LoggedOutHeader from 'app/components/LoggedOutHeader';
 
 @inject(STORE_ROUTER)
 @observer
@@ -20,13 +22,15 @@ export class Root extends React.Component<any, any> {
     if ( this.props[STORE_ROUTER].loggedIn) {
       return (
         <div className="container">
+          <LoggedInHeader />
           {this.props.children}
           {this.renderDevTool()}
         </div>
       );
     } else {
       return <div>
-        go away
+        <LoggedOutHeader />
+          go away
           <Button onClick={() => this.props[STORE_ROUTER].login()}>
             login
           </Button>
