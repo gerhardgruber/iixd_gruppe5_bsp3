@@ -28,6 +28,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
         Dashboard
 
         <Button onClick={() => this.props[STORE_ROUTER].logout() }>logout</Button>
+        
       </div>
     );
   }
