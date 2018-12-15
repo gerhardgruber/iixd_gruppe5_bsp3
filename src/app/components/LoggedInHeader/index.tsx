@@ -14,6 +14,7 @@ export default class LoggedInHeader extends React.Component {
       <Button onClick={() => this.props[STORE_ROUTER].logout()}>
         logout
       </Button>
+      text text text
     </div>
   }
 }

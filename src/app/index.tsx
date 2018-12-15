@@ -5,7 +5,7 @@ import { Root } from 'app/containers/Root';
 import { Dashboard } from 'app/containers/Dashboard';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import NewEntry from './containers/NewEntry';
+import Analysis from './containers/Analysis';
 import Profile from './containers/Profile';
 
 // render react DOM
@@ -13,7 +13,7 @@ export const App = hot(module)(({ history }) => (
   <Root>
     <Router history={history}>
       <Switch>
-        <Route path="/new" component={NewEntry} />
+        <Route path="/analysis" component={Analysis} />
         <Route path="/profile" component={Profile} />
         <Route exact path="/" component={Dashboard} />
       </Switch>
