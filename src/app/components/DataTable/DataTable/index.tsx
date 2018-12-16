@@ -10,6 +10,5 @@ export default class DataTable extends React.Component<any> {
     return <div>
       <TableEntry icon="home" repeat={false} date={"12.01.2018"} title={"Miete"} discription={"Miete dieses Monat"} price={"1234"}/>
     </div>
-
   }
 }
