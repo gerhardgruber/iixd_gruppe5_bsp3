@@ -1,3 +1,5 @@
 .table-entry{
   border: 2px solid;
+  border-color: gray;
+  background-color: azure;
 }
