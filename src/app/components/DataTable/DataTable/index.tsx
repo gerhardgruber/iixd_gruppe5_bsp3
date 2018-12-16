@@ -1,4 +1,5 @@
 import * as React from 'react';
+import TableEntry from "app/components/DataTable/TableEntry";
 // import { inject } from 'mbox-react'
 // import { STORE_ROUTER } from 'app/constants'
 
@@ -6,7 +7,9 @@ import * as React from 'react';
 
 export default class DataTable extends React.Component {
   render() {
-    return <div>TableEntries here</div>
+    return <div>TableEntries here
+      <TableEntry/>
+    </div>
 
   }
 }

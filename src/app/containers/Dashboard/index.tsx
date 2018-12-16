@@ -5,6 +5,7 @@ import { Button } from 'reactstrap';
 import {
   STORE_ROUTER,
 } from 'app/constants';
+import DataTable from "app/components/DataTable/DataTable";
 
 export interface DashboardProps extends RouteComponentProps<any> {
   /** MobX Stores will be injected via @inject() **/
@@ -25,8 +26,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   render() {
     return (
       <div>
-        Dashboard
-
+        <DataTable/>
         <Button onClick={() => this.props[STORE_ROUTER].logout() }>logout</Button>
         
       </div>

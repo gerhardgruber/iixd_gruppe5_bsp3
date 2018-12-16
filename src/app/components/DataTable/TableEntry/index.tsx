@@ -7,7 +7,7 @@ import * as React from 'react';
 export default class TableEntry extends React.Component {
   render() {
     return <div>
-      TableEntry
+      <span className="glyphicon glyphicon-home"/>
     </div>
   }
 }
