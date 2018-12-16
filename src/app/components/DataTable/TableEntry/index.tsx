@@ -14,7 +14,7 @@ export default class TableEntry extends React.Component<any> {
       </div>
       <div className="col-sm-6">
         <div>{this.props.title}</div>
-        <div>{this.props.discription}</div>
+        <div>{this.props.description}</div>
       </div>
       <div className="col-sm-3">
         <div>{this.props.date}</div>
