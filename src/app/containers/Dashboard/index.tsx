@@ -1,21 +1,22 @@
 import * as React from 'react';
-import { inject, observer } from 'mobx-react';
-import { RouteComponentProps } from 'react-router';
-import { Button } from 'reactstrap';
-import { PieChart, Pie } from 'recharts';
+import {inject, observer} from 'mobx-react';
+import {RouteComponentProps} from 'react-router';
+import {Button} from 'reactstrap';
+import {PieChart, Pie} from 'recharts';
 import {
-  STORE_ROUTER,
+    STORE_ROUTER,
 } from 'app/constants';
 import DataTable from "app/components/DataTable/DataTable";
 
 export interface DashboardProps extends RouteComponentProps<any> {
-  /** MobX Stores will be injected via @inject() **/
-  // [STORE_ROUTER]: RouterStore;
-  // [STOURE_TODO]: TodoStore;
+    /** MobX Stores will be injected via @inject() **/
+    // [STORE_ROUTER]: RouterStore;
+    // [STOURE_TODO]: TodoStore;
 }
 
 export interface DashboardState {
 }
+
 const data = [{name: 'A1', value: 100},
     {name: 'A2', value: 300},
     {name: 'B1', value: 100},
@@ -31,21 +32,24 @@ const data = [{name: 'A1', value: 100},
 @inject(STORE_ROUTER)
 @observer
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
-  constructor(props: DashboardProps, context: any) {
-    super(props, context);
-  }
+    constructor(props: DashboardProps, context: any) {
+        super(props, context);
+    }
 
 
-  render() {
-    return (
-      <div>
-        <PieChart width={730} height={250}>
-            <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
-            {/*<Pie data={2} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />*/}
-        </PieChart>
-        <DataTable/>
-        <Button onClick={() => this.props[STORE_ROUTER].logout() }>logout</Button>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <div className="row">
+                    <PieChart width={730} height={250} className="col-sm-6">
+                        <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50}
+                             fill="#8884d8"/>
+                        {/*<Pie data={2} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />*/}
+                    </PieChart>
+                    <DataTable className="col-sm-6"/>
+                </div>
+                <Button onClick={() => this.props[STORE_ROUTER].logout()}>logout</Button>
+            </div>
+        );
+    }
 }
