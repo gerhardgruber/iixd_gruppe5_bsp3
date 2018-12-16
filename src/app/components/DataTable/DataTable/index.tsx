@@ -1,17 +1,15 @@
 import * as React from 'react';
-import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
+import {STORE_ENTRIES} from "app/constants";
+import {inject, observer} from "mobx-react";
 import TableEntry from "app/components/DataTable/TableEntry";
-// import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
-// import { inject } from 'mbox-react'
-// import { STORE_ROUTER } from 'app/constants'
 
-// @inject(STORE_ROUTER)
-
+@inject(STORE_ENTRIES)
+@observer
 export default class DataTable extends React.Component<any> {
   render() {
     let i = 0;
     return <div {...this.props}>
-      {DASHBOARD_TABLE_DATA.map(entry => <TableEntry {...entry} key={i++}/>)}
+      {this.props[STORE_ENTRIES].getEntries().map(entry => <TableEntry {...entry} key={i++}/>)}
     </div>
   }
 }
