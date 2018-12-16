@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 import TableEntry from "app/components/DataTable/TableEntry";
+import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 // import { inject } from 'mbox-react'
 // import { STORE_ROUTER } from 'app/constants'
 

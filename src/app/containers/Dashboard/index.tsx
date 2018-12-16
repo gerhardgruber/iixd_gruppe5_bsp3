@@ -7,6 +7,7 @@ import {
   STORE_ROUTER,
 } from 'app/constants';
 import DataTable from "app/components/DataTable/DataTable";
+import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 
 export interface DashboardProps extends RouteComponentProps<any> {
   /** MobX Stores will be injected via @inject() **/
@@ -16,17 +17,6 @@ export interface DashboardProps extends RouteComponentProps<any> {
 
 export interface DashboardState {
 }
-const data = [{name: 'A1', value: 100},
-    {name: 'A2', value: 300},
-    {name: 'B1', value: 100},
-    {name: 'B2', value: 80},
-    {name: 'B3', value: 40},
-    {name: 'B4', value: 30},
-    {name: 'B5', value: 50},
-    {name: 'C1', value: 100},
-    {name: 'C2', value: 200},
-    {name: 'D1', value: 150},
-    {name: 'D2', value: 50}];
 
 @inject(STORE_ROUTER)
 @observer
@@ -35,17 +25,33 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     super(props, context);
   }
 
-
   render() {
     return (
       <div>
         <PieChart width={730} height={250}>
-            <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
-            {/*<Pie data={2} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />*/}
+            <Pie data={parsePieData(DASHBOARD_TABLE_DATA)} dataKey="price" nameKey="category" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
         </PieChart>
         <DataTable/>
         <Button onClick={() => this.props[STORE_ROUTER].logout() }>logout</Button>
       </div>
     );
   }
+}
+
+function parsePieData(data) {
+    var pieData = [];
+    var categories = [];
+    var index;
+
+    data.forEach(entry => {
+        index = categories.findIndex(category => category == entry.category);
+        if (index == -1){
+            index = categories.push(entry.category) - 1;
+            pieData.push({category:entry.category, price:entry.price})
+        } else {
+            pieData[index] = {category:pieData[index].category, price:pieData[index].price + entry.price}
+        }
+    });
+
+    return pieData;
 }
