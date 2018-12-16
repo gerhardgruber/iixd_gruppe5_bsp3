@@ -4,10 +4,21 @@ import * as React from 'react';
 
 // @inject(STORE_ROUTER)
 
-export default class TableEntry extends React.Component {
+export default class TableEntry extends React.Component<any> {
   render() {
     return <div>
-      <span className="glyphicon glyphicon-home"/>
+      <span className={"glyphicon glyphicon-" + this.props.icon}/>
+      {this.props.repeat ? <span className="glyphicon glyphicon-repeat"/> : null}
+      <div>
+        <div>{this.props.title}</div>
+        <div>{this.props.discription}</div>
+      </div>
+      <div>
+        <div>{this.props.date}</div>
+        <div>{this.props.price}</div>
+      </div>
+
+
     </div>
   }
 }
