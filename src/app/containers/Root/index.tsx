@@ -21,7 +21,7 @@ export class Root extends React.Component<any, any> {
   render() {
     if ( this.props[STORE_ROUTER].loggedIn) {
       return (
-        <div className="container">
+        <div>
           <LoggedInHeader />
           {this.props.children}
           {this.renderDevTool()}

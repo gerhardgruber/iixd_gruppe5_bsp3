@@ -11,7 +11,7 @@ import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 export default class CustomPieChart extends React.Component<any> {
     render() {
         return (
-            <div>
+            <div {...this.props}>
                 <PieChart width={730} height={250} onClick={index => {this.setState({
                     activeIndex:index
                 })}}>

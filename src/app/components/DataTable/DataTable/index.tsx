@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 import TableEntry from "app/components/DataTable/TableEntry";
 // import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 // import { inject } from 'mbox-react'
@@ -9,8 +10,8 @@ import TableEntry from "app/components/DataTable/TableEntry";
 export default class DataTable extends React.Component<any> {
   render() {
     let i = 0;
-    return <div>
-      {this.props.data.map(entry => <TableEntry {...entry} key={i++}/>)}
+    return <div {...this.props}>
+      {DASHBOARD_TABLE_DATA.map(entry => <TableEntry {...entry} key={i++}/>)}
     </div>
   }
 }
