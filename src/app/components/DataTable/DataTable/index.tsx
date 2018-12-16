@@ -8,8 +8,7 @@ import TableEntry from "app/components/DataTable/TableEntry";
 export default class DataTable extends React.Component {
   render() {
     return <div>TableEntries here
-      <TableEntry/>
+      <TableEntry icon="home"/>
     </div>
-
   }
 }
