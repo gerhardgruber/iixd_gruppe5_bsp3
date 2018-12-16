@@ -8,8 +8,9 @@ import TableEntry from "app/components/DataTable/TableEntry";
 
 export default class DataTable extends React.Component<any> {
   render() {
-    return <React.Fragment>
-      {DASHBOARD_TABLE_DATA.map(entry => <TableEntry {...entry}/>)}
-    </React.Fragment>
+    let i = 0;
+    return <div>
+      {DASHBOARD_TABLE_DATA.map(entry => <TableEntry {...entry} key={i++}/>)}
+    </div>
   }
 }

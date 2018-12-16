@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as styles from './tableEntry.css'
 // import { inject } from 'mbox-react'
 // import { STORE_ROUTER } from 'app/constants'
 
@@ -6,7 +7,7 @@ import * as React from 'react';
 
 export default class TableEntry extends React.Component<any> {
   render() {
-    return <div>
+    return <div className={styles["table-entry"]}>
       <span className={this.props.icon}/>
       {this.props.repeat ? <span className="glyphicon glyphicon-repeat"/> : null}
       <div>
