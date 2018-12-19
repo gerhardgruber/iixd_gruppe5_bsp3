@@ -18,7 +18,7 @@ export default class CustomPieChart extends React.Component<any> {
                 <CartesianGrid strokeDasharray="3 3"/>
                 <Tooltip/>
                 <Legend />
-                <Line type="monotone" dataKey="price" stroke="#8884d8" activeDot={{r: 8}}/>
+                <Line type="monotone" strokeWidth={4} dataKey="price" stroke="#6495ED" activeDot={{r: 8}}/>
             </LineChart>
         );
     }

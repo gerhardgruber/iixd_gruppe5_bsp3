@@ -50,6 +50,8 @@
     "classnames": "^2.2.5",
     "css-loader": "^2.0.1",
     "lodash": "^4.17.11",
+    "mdbootstrap": "^4.5.16",
+    "mdbreact": "^4.8.5-patch.1",
     "mobx": "^3.6.1",
     "mobx-react": "^4.4.2",
     "mobx-react-router": "^4.0.1",

@@ -1,0 +1,8 @@
+.dataTable{
+    border: 2px solid;
+    border-color: gray;
+    background-color: #ffffff;
+    height: 700px;
+    max-width: 540px;
+    overflow-y: auto;
+}

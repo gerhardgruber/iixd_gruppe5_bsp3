@@ -9,10 +9,11 @@ import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 import * as styles from './pieChart.css'
 
 const pieData = parsePieData(DASHBOARD_TABLE_DATA);
+const defaultPieIcon = "glyphicon glyphicon-asterisk";
 
 export interface pieState {
     clickedSegment: -1
-    pieIcon: '';
+    pieIcon: "glyphicon glyphicon-asterisk";
 }
 
 @inject(STORE_ROUTER, STORE_ENTRIES)
@@ -21,13 +22,13 @@ export default class CustomPieChart extends React.Component<any, pieState> {
 
     constructor(props){
         super(props);
-        this.state = {clickedSegment: -1, pieIcon: ''};
+        this.state = {clickedSegment: -1, pieIcon: defaultPieIcon};
         this.changeColor = this.changeColor.bind(this);
     }
 
     changeColor(entry, index){
         if (this.state.clickedSegment === index) {
-            this.setState({clickedSegment: -1, pieIcon: ""})
+            this.setState({clickedSegment: -1, pieIcon: defaultPieIcon})
         } else {
             this.setState({clickedSegment: index, pieIcon: entry.icon})
         }

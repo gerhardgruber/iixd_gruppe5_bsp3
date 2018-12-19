@@ -1,5 +1,15 @@
 .table-entry{
   border: 2px solid;
-  border-color: gray;
-  background-color: azure;
+  border-color: dimgray;
+  background-color: #e8effc;
+  border-radius: 10px;
+  max-width: inherit;
+  margin: 2px 2px 2px 2px;
+  padding: 2px 2px 2px 2px;
+  min-height: 55px;
+  font-size: 16px;
+}
+.icon{
+  font-size: 20px;
+  color: gray;
 }
