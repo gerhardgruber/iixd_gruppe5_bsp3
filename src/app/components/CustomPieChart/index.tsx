@@ -16,9 +16,7 @@ export default class CustomPieChart extends React.Component<any> {
     render() {
         return (
             <div {...this.props}>
-                <PieChart width={730} height={250} onClick={index => {this.setState({
-                    activeIndex:index
-                })}}>
+                <PieChart width={730} height={250}>
                     <Pie data={pieData} dataKey="price" nameKey="category" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" label>
                         {pieData.map((entry, index) => (
                             <Cell key = {index}
