@@ -1,3 +1,20 @@
 .customButton {
     float: right;
+    margin: 10px 5px 10px 5px;
+    min-height: 60px;
+    min-width: 60px;
+    border-radius: 28px;
+    background-color: #6495ED;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border: 0px;
+}
+
+.customButton:hover {
+    background-color: #4881ea;
+}
+
+.icon {
+    font-size: 25px;
+    color: white;
 }

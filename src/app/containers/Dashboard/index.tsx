@@ -7,7 +7,6 @@ import {
 import DataTable from "app/components/DataTable/DataTable";
 import CustomPieChart from "app/components/CustomPieChart";
 import CustomLineChart from "app/components/CustomLineChart";
-import { MDBBtn, MDBIcon } from "mdbreact";
 import * as styles from './Dashboard.css'
 
 export interface DashboardProps extends RouteComponentProps<any> {
@@ -29,7 +28,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
     render() {
         return (
-            <div className="container">
+            <div className={"container h-100"}>
                 <div className="row">
                     <div className="col-sm-6">
                         <CustomPieChart/>
@@ -39,9 +38,16 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                         <DataTable/>
                     </div>
                 </div>
-                <MDBBtn className={styles["customButton"]} color="primary" size="lg">
-                    <MDBIcon icon="magic" className="mr-1" /> Analysis
-                </MDBBtn>
+                <div className="row">
+                    <div className={"col-sm-12"}>
+                        <button className={styles["customButton"]}>
+                            <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
+                        </button>
+                        <button className={styles["customButton"]}>
+                            <span className={"fa fa-bar-chart " + styles["icon"]}/>
+                        </button>
+                    </div>
+                </div>
             </div>
         );
 
