@@ -6,6 +6,7 @@ import {
 } from 'app/constants';
 import DataTable from "app/components/DataTable/DataTable";
 import CustomPieChart from "app/components/CustomPieChart";
+import CustomLineChart from "app/components/CustomLineChart";
 
 export interface DashboardProps extends RouteComponentProps<any> {
     /** MobX Stores will be injected via @inject() **/
@@ -28,11 +29,16 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
         return (
             <div className="container">
                 <div className="row">
-                    <CustomPieChart className="col-sm-6"/>
-                    <DataTable className="col-sm-6"/>
+                    <div className="col-sm-auto">
+                        <CustomLineChart className="col-"/>
+                        <CustomPieChart className="col-"/>
+                    </div>
+                    <div className="col-sm-auto">
+                        <DataTable className="col-"/>
+                    </div>
                 </div>
-
             </div>
         );
+
     }
 }
