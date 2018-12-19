@@ -10,29 +10,26 @@ import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
 const pieData = parsePieData(DASHBOARD_TABLE_DATA);
 
 
-// export interface pieState {
-//     clickedSegment: -1
-// }
+export interface pieState {
+    clickedSegment: -1
+}
 
-let clickedSegment = -1;
 
 @inject(STORE_ROUTER, STORE_ENTRIES)
 @observer
-export default class CustomPieChart extends React.Component<any> {
+export default class CustomPieChart extends React.Component<any, pieState> {
 
     constructor(props){
         super(props);
-        this.changeColor = this.changeColor.bind(this)
+        this.state = {clickedSegment: -1};
+        this.changeColor = this.changeColor.bind(this);
     }
 
     changeColor(index){
-        console.log("changeColor");
-        if (clickedSegment === index) {
-            console.log("reset");
-            clickedSegment = -1
+        if (this.state.clickedSegment === index) {
+            this.setState({clickedSegment: -1})
         } else {
-            console.log("set");
-            clickedSegment = index;
+            this.setState({clickedSegment: index})
         }
     }
 
@@ -42,9 +39,8 @@ export default class CustomPieChart extends React.Component<any> {
                 <PieChart width={730} height={250}>
                     <Pie data={pieData} dataKey="price" nameKey="category" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" label>
                         {pieData.map((entry, index) => (
-                            <Cell key = {index} fill={index === clickedSegment ? "#FFFFFF" : "#000000"}
+                            <Cell key = {index} fill={index === this.state.clickedSegment ? "#F0FFFF" : "#e6ffff"}
                                 onClick={() => {
-                                    console.log(index + " " + clickedSegment);
                                     this.props[STORE_ENTRIES].setFilterCategory(entry.category);
                                     this.changeColor(index);
                                 }}/>
