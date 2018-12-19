@@ -29,12 +29,12 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-auto">
-                        <CustomLineChart className="col-"/>
-                        <CustomPieChart className="col-"/>
+                    <div className="col-sm-6">
+                        <CustomPieChart/>
+                        <CustomLineChart/>
                     </div>
-                    <div className="col-sm-auto">
-                        <DataTable className="col-"/>
+                    <div className="col-sm-6">
+                        <DataTable/>
                     </div>
                 </div>
             </div>
