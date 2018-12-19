@@ -20,7 +20,6 @@ export default class CustomPieChart extends React.Component<any> {
                 <Tooltip/>
                 <Legend />
                 <Line type="monotone" dataKey="price" stroke="#8884d8" activeDot={{r: 8}}/>
-                {/*<Line type="monotone" dataKey="uv" stroke="#82ca9d" />*/}
             </LineChart>
         );
     }
