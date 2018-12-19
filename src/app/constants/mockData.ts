@@ -23,3 +23,5 @@ export const DASHBOARD_TABLE_DATA = [
     {icon: "fa fa-bus", repeat:false, date: "18.10.2018", title: "Ticket U-Bahn", price: 10, category:"transport"},
     {icon: "fa fa-bus", repeat:false, date: "18.10.2018", title: "Ticket U-Bahn", price: 10, category:"transport"},
     {icon: "fa fa-bus", repeat:false, date: "18.10.2018", title: "Ticket U-Bahn", price: 10, category:"transport"}];
+
+export const DATE_FORMAT = "dd.mm.yyyy";

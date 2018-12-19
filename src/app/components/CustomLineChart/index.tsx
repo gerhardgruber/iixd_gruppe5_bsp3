@@ -12,7 +12,7 @@ export default class CustomPieChart extends React.Component<any> {
 
     render() {
         return (
-            <LineChart width={600} height={300} data={this.props[STORE_ENTRIES].getEntries()}
+            <LineChart width={600} height={300} data={this.props[STORE_ENTRIES].getEntriesGroupedByDate()}
                        margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                 <XAxis dataKey="date"/>
                 <YAxis/>
