@@ -6,6 +6,7 @@ import {
     STORE_ROUTER,
 } from 'app/constants';
 import {DASHBOARD_TABLE_DATA} from "app/constants/mockData";
+import * as styles from './pieChart.css'
 
 const pieData = parsePieData(DASHBOARD_TABLE_DATA);
 
@@ -24,25 +25,25 @@ export default class CustomPieChart extends React.Component<any, pieState> {
         this.changeColor = this.changeColor.bind(this);
     }
 
-    changeColor(index){
+    changeColor(entry, index){
         if (this.state.clickedSegment === index) {
-            this.setState({clickedSegment: -1})
+            this.setState({clickedSegment: -1, pieIcon: ""})
         } else {
-            this.setState({clickedSegment: index})
+            this.setState({clickedSegment: index, pieIcon: entry.icon})
         }
     }
 
     render() {
         return (
             <div {...this.props}>
-                <span className={''}></span>
+                <span className={this.state.pieIcon + " " + styles["span"]}/>
                 <PieChart width={540} height={400}>
                     <Pie data={pieData} dataKey="price" nameKey="category" cx="57%" cy="50%" innerRadius={100} outerRadius={150} fill="#8884d8" label>
                         {pieData.map((entry, index) => (
                             <Cell key = {index} fill={index === this.state.clickedSegment ? "#4881ea" : "#6495ED"}
                                 onClick={() => {
                                     this.props[STORE_ENTRIES].setFilterCategory(entry.category);
-                                    this.changeColor(index);
+                                    this.changeColor(entry, index);
                                 }}/>
                         ))}
                     </Pie>
