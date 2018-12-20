@@ -16,17 +16,24 @@ export class EntryStore {
     setFilterCategory = (category: string) => this.filterCategory = this.filterCategory == category ? null : category;
 
 
-    getEntries = () => {
+    getEntriesFiltered = () => {
         return DASHBOARD_TABLE_DATA.filter(this.filterCallback);
     };
 
 
     getEntriesGroupedByDate = () => {
-        return _.chain(this.getEntries())
+        return _.chain(this.getEntriesFiltered())
             .groupBy('date')
             .map(entry => entry.reduce((accumulator, current) => {return {date: current.date, price: current.price + accumulator.price}}, {price:0}))
-            .sortBy((a => moment().format(a.date, DATE_FORMAT)))
+            .sortBy((a => moment(a.date, DATE_FORMAT)))
             .value();
     };
+
+    getEntriesGroupedByMonth = () => {
+        return _.chain(this.getEntriesFiltered())
+            .groupBy(a => moment(a.date, DATE_FORMAT).format("yyyymm"))
+            .sortBy((a => moment(a.date, DATE_FORMAT)))
+            .value();
+    }
 }
 
