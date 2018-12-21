@@ -4,13 +4,10 @@ import { RouteComponentProps } from 'react-router';
 import {
   STORE_ROUTER,
 } from 'app/constants';
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
 import * as styles from './NewEntry.css'
-import Dropdown from 'reactstrap/lib/Dropdown';
-import DropdownToggle from 'reactstrap/lib/DropdownToggle';
-import DropdownMenu from 'reactstrap/lib/DropdownMenu';
-import DropdownItem from 'reactstrap/lib/DropdownItem';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import LoggedInHeader from 'app/components/LoggedInHeader';
 
 export interface NewEntryProps extends RouteComponentProps<any> {
   /** MobX Stores will be injected via @inject() **/
@@ -56,7 +53,7 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
   render() {
     let save = null
     let back = null
-  
+
     if ( this.state.amount.length == 0 && this.state.titel.length == 0 )
     {
       back =
@@ -95,11 +92,11 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
         <button disabled className={styles["customButton"]}>
           <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
         </button>
-    
-    }    
+
+    }
     else
     {
-      save = 
+      save =
         <Link to="/">
           <button className={styles["customButton"]}>
             <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
@@ -107,7 +104,8 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
         </Link>
     }
     return (
-      <div>
+      <div style={{fontSize: '16px', height: '100vh'}}>
+        <LoggedInHeader />
         <div className="row">
           <div className={"col-sm-12"}>
             <div className="form-group row">
@@ -118,11 +116,11 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
                 <input type="text" className="form-control form-control-sm" id="title" placeholder="Titel" onChange={(event) => {
                   let showerror = false
                   let titel = event.target.value;
-                  
+
                   if ( titel.length == 0 )
                   {
                       showerror = true;
-                  } 
+                  }
 
                   this.setState({
                     titelInvalid: showerror,
@@ -157,29 +155,29 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
                 Betrag:
               </label>
               <div className="col-sm-8">
-                
+
                 <input type="text" className="form-control form-control-sm" id="amount" placeholder="Betrag" onChange={(event) => {
-                  
+
                   let amount = event.target.value;
                   let showerror = false;
                   let amountAsFloat = parseFloat( amount );
                   let regexp = new RegExp('^[,.0-9]+$');
                   let test = regexp.test(amount);
-                  
+
                   amount = amount.replace(".", "");
                   amount = amount.replace(",", ".");
-                  if ( !test ) 
+                  if ( !test )
                   {
                     showerror = true;
                   }
-                  if ( isNaN( amountAsFloat ) ) 
+                  if ( isNaN( amountAsFloat ) )
                   {
                     showerror = true;
                   }
                   if ( amount.length == 0 )
                   {
                       showerror = false;
-                  } 
+                  }
 
                   this.setState({
                     amountInvalid: showerror,
@@ -198,24 +196,13 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
               <label className="col-sm-4 col-form-label">
                 Kategorie:
               </label>
-              <div className="col-sm-8">   
-                <div className="dropdown">
-                  <Dropdown isOpen={this.state.categoryOpen} toggle={() => {
-                    this.setState({
-                      categoryOpen: !this.state.categoryOpen
-                    })
-                  }}>
-                    <DropdownToggle caret>
-                      Kategorie
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem>Wohnen</DropdownItem>
-                      <DropdownItem>Essen &amp; Trinken</DropdownItem>
-                      <DropdownItem>Mobilität</DropdownItem>
-                      <DropdownItem>Sport</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </div>
+              <div className="col-sm-8">
+                <select style={{width: '100%'}}>
+                  <option>Wohnen</option>
+                  <option>Essen &amp; Trinken</option>
+                  <option>Mobilität</option>
+                  <option>Sport</option>
+                </select>
               </div>
             </div>
             <div className="form-group row">
@@ -223,22 +210,12 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
                 Wiederholung:
               </label>
               <div className="col-sm-8">
-                <div className="dropdown">
-                  <Dropdown isOpen={this.state.repeatOpen} toggle={() => {
-                    this.setState({
-                      repeatOpen: !this.state.repeatOpen
-                    })
-                  }}>
-                    <DropdownToggle caret>
-                      Wiederholung
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem>Wöchentlich</DropdownItem>
-                      <DropdownItem>Monatlich</DropdownItem>
-                      <DropdownItem>Benutzerdewfiniert</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </div>
+                <select style={{width: '100%'}}>
+                  <option>Nicht wiederholen</option>
+                  <option>Wöchentlich</option>
+                  <option>Monatlich</option>
+                  <option>Benutzerdefiniert</option>
+                </select>
               </div>
             </div>
           </div>

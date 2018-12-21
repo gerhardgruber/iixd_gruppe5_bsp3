@@ -28,7 +28,7 @@ export class Root extends React.Component<any, any> {
         </div>
       );
     } else {
-      return <div className="container">
+      return <div className="container" style={{fontSize: '16px'}}>
         <LoggedOutHeader />
           <div style={{position: 'relative', height: 'calc(100vh - 40px)'}}>
             <div style={{position: 'absolute', top: '25%', width: '100%', textAlign: 'center'}}>
