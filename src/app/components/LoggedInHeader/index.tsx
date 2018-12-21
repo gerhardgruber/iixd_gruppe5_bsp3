@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { inject } from 'mobx-react';
-import { Link } from 'react-dom-router';
+import { Link } from 'react-router-dom';
 import {
   STORE_ROUTER,
 } from 'app/constants';
