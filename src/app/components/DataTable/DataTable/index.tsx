@@ -47,16 +47,17 @@ export default class DataTable extends React.Component<any, DataTableState> {
             }
             {
                 group.map(entry =>
-                <TableEntry {...entry} key={i++}/>)
+                    <TableEntry {...entry} key={i++}/>)
             }</React.Fragment>;
     };
 
     renderGroupHeader = (group, groupIndex) => {
-        return (<TableEntryGroup data={group}
-                                 onClick={(() => {
-                                     let state = this.state;
-                                     state.renderEntryGroups[groupIndex] = !state.renderEntryGroups[groupIndex];
-                                     this.setState(state);
-                                 }).bind(this)}/>);
+        return (<TableEntryGroup expanded={this.state.renderEntryGroups[groupIndex]}
+            data={group}
+            onClick={(() => {
+                let state = this.state;
+                state.renderEntryGroups[groupIndex] = !state.renderEntryGroups[groupIndex];
+                this.setState(state);
+            }).bind(this)}/>);
     }
 }

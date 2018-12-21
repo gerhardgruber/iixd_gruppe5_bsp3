@@ -11,14 +11,7 @@ export default class TableEntryGroup extends React.Component<any> {
     render() {
         return <div className={styles["table-entry-group"] + " row"} onClick={this.props.onClick}>
             <div className="col-sm-2">
-                <div>
-                    <span className={styles["icon"] + " " + this.props.icon}/>
-                </div>
-                <div>
-                    {this.props.repeat ? <span className={styles["icon"] + " glyphicon glyphicon-repeat"}/> : null}
-                </div>
-                {/*<div className="col-sm-1">*/}
-                {/*</div>*/}
+                <span className={this.props.expanded? "glyphicon glyphicon-chevron-down" : "glyphicon glyphicon-chevron-right"}/>
             </div>
             <div className="col-sm-6">
                 <div>{moment(this.props.data[0].date, DATE_FORMAT).format("MMMM YYYY")}</div>
