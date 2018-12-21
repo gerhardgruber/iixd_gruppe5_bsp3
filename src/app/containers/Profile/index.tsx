@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default class Profile extends React.Component {
   render() {
-    return <div style={{heigth: '100vh', fontSize: '16px'}}>
+    return <div style={{height: '100vh', fontSize: '16px'}}>
       <LoggedInHeader />
       <div className={"container 100"} style={{paddingTop: '16px', height: 'calc(100vh - 40px)'}}>
         <table style={{width: '100%'}}>
