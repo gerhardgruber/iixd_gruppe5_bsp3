@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {STORE_ENTRIES} from "app/constants";
 import {inject, observer} from "mobx-react";
-import * as styles from './InputAnalysis.css' //styles["name"]
-// import { TextInput } from 'react-native';
+import * as styles from './InputAnalysis.css'
 
 @inject(STORE_ENTRIES)
 @observer
@@ -12,18 +11,23 @@ export default class InputAnalysis extends React.Component<any> {
         return (
             <div className={"col-sm-12 " + styles["topContainer"]}>
                 <div className={"col-sm-12"}>
-                    <input className={"col-sm-12 " + styles["fieldBase"]} type={"text"} value={"Titel oder Beschreibung.. "}/>
+                    <i className={"col-sm-1 glyphicon glyphicon-search " + styles["icon"]} />
+                    <input id={"textFilter"} className={"col-sm-10 " + styles["fieldBase"]} type={"text"} value={"Titel oder Beschreibung.. "} />
                 </div>
                 <div className={"col-sm-6"}>
-                    <input className={"col-sm-12 " + styles["fieldBase"]} type={"text"} value={"Max Betrag "}/>
-                    <input className={"col-sm-12 " + styles["fieldBase"]} type={"text"} value={"Min Betrag"}/>
-                    <select className={"col-sm-12 " + styles["fieldBase"]} >
+                    <i className={"col-sm-1 fa fa-dollar " + styles["icon"]} />
+                    <input className={"col-sm-9 " + styles["fieldBase"]} type={"text"} value={"Max Betrag"} />
+                    <i className={"col-sm-1 fa fa-dollar " + styles["icon"]} />
+                    <input className={"col-sm-9 " + styles["fieldBase"]} type={"text"} value={"Min Betrag"} />
+                    <i className={"col-sm-1 glyphicon glyphicon-sort " + styles["icon"]} />
+                    <select className={"col-sm-9 " + styles["fieldBase"]} >
                         <option value={"Datum absteigend"}>Datum absteigend</option>
                         <option value={"Datum aufsteigend"}>Datum aufsteigend</option>
                     </select>
                 </div >
                 <div className="col-sm-6">
-                    <select className={"col-sm-12 " + styles["fieldBase"]} onChange={ (selection => {
+                    <i className={"col-sm-1 glyphicon glyphicon-user " + styles["icon"]} />
+                    <select className={"col-sm-9 " + styles["fieldBase"]} onChange={ (selection => {
                         if (selection.target.value == "Alle Benutzer") {
                             this.props[STORE_ENTRIES].setFilterUser(null)
                         } else {
@@ -36,7 +40,8 @@ export default class InputAnalysis extends React.Component<any> {
                         <option value={"Gerhard"}>Gerhard</option>
                         <option value={"Michael"}>Michael</option>
                     </select>
-                    <select className={"col-sm-12 " + styles["fieldBase"]} onChange={ (selection => {
+                    <i className={"col-sm-1 glyphicon glyphicon-asterisk " + styles["icon"]} />
+                    <select className={"col-sm-9 " + styles["fieldBase"]} onChange={ (selection => {
                         if (selection.target.value == "Alle Kategorien") {
                             this.props[STORE_ENTRIES].setFilterCategory(null)
                         } else {
@@ -49,7 +54,8 @@ export default class InputAnalysis extends React.Component<any> {
                         <option value={"haushalt"}>Haushalt</option>
                         <option value={"essen"}>Essen</option>
                     </select>
-                    <select className={"col-sm-12 " + styles["fieldBase"]} >
+                    <i className={"col-sm-1 far fa-clock " + styles["icon"]} />
+                    <select className={"col-sm-9 " + styles["fieldBase"]} >
                         <option value={"Gesamter Zeitraum"}>Gesamter Zeitraum</option>
                         <option value={"Aktueller Monat"}>Aktueller Monat</option>
                         <option value={"Zeitraum"}>Zeitraum</option>

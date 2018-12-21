@@ -9,6 +9,9 @@
   min-height: 55px;
   font-size: 16px;
 }
+.table-entry-group:hover {
+  background-color: #c0d9fc;
+}
 .icon{
   font-size: 20px;
   color: gray;

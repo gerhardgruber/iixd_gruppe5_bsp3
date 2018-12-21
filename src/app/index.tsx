@@ -2,7 +2,7 @@ import * as React from 'react';
 import { hot } from 'react-hot-loader';
 import { Router, Route, Switch } from 'react-router';
 import { Root } from 'app/containers/Root';
-import { Dashboard } from 'app/containers/Dashboard';
+// import { Dashboard } from 'app/containers/Dashboard';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Analysis from './containers/Analysis';
@@ -15,7 +15,7 @@ export const App = hot(module)(({ history }) => (
       <Switch>
         <Route path="/analysis" component={Analysis} />
         <Route path="/profile" component={Profile} />
-        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/" component={Analysis} />
       </Switch>
     </Router>
   </Root>

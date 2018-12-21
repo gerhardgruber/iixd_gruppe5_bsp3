@@ -17,22 +17,49 @@ export class EntryStore {
     @observable
     filterUser: string;
 
+    @observable
+    filterText: string;
+
+    @observable
+    filterTime: string;
+
     categoryFilterCallback = (entry) => {
         return !this.filterCategory || entry.category == this.filterCategory;
     };
-
     userFilterCallback = (entry) => {
         return !this.filterUser || entry.user == this.filterUser;
     };
+    minPriceFilterCallback = (entry) => {
+        return !this.filterMinPrice || entry.price >= this.filterMinPrice;
+    };
+    maxPriceFilterCallback = (entry) => {
+        return !this.filterMaxPrice || entry.price <= this.filterMaxPrice;
+    };
+    textFilterCallback = (entry) => {
+        return !this.filterText || entry.description.contains(this.filterText) || entry.title.contains(this.filterText)
+    };
+    // timeFilterCallback = (entry) => {
+    //     return !this.filterUser || entry.user == this.filterUser;
+    // };
 
     @action
     setFilterCategory = (category: string) => this.filterCategory = this.filterCategory == category ? null : category;
 
     @action
     setFilterUser = (user: string) => this.filterUser = user;
+    @action
+    setFilterMinPrice = (minPrice: number) => this.filterMinPrice = minPrice;
+    @action
+    setFilterMaxPrice = (maxPrice: number) => this.filterMaxPrice = maxPrice;
+    @action
+    setFilterText = (text: string) => this.filterText = text;
 
     getEntriesFiltered = () => {
-        return DASHBOARD_TABLE_DATA.filter(this.categoryFilterCallback).filter(this.userFilterCallback);
+        return DASHBOARD_TABLE_DATA.filter(this.categoryFilterCallback)
+            .filter(this.userFilterCallback)
+            .filter(this.minPriceFilterCallback)
+            .filter(this.maxPriceFilterCallback)
+            .filter(this.textFilterCallback);
     };
 
     getEntriesGroupedByDate = () => {
