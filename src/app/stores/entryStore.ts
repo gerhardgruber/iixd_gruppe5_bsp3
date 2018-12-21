@@ -8,18 +8,32 @@ export class EntryStore {
     @observable
     filterCategory: string;
 
-    filterCallback = (entry) => {
+    @observable
+    filterMinPrice: number;
+
+    @observable
+    filterMaxPrice: number;
+
+    @observable
+    filterUser: string;
+
+    categoryFilterCallback = (entry) => {
         return !this.filterCategory || entry.category == this.filterCategory;
+    };
+
+    userFilterCallback = (entry) => {
+        return !this.filterUser || entry.user == this.filterUser;
     };
 
     @action
     setFilterCategory = (category: string) => this.filterCategory = this.filterCategory == category ? null : category;
 
+    @action
+    setFilterUser = (user: string) => this.filterUser = user;
 
     getEntriesFiltered = () => {
-        return DASHBOARD_TABLE_DATA.filter(this.filterCallback);
+        return DASHBOARD_TABLE_DATA.filter(this.categoryFilterCallback).filter(this.userFilterCallback);
     };
-
 
     getEntriesGroupedByDate = () => {
         return _.chain(this.getEntriesFiltered())

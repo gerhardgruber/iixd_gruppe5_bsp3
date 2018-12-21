@@ -23,19 +23,31 @@ export default class InputAnalysis extends React.Component<any> {
                     </select>
                 </div >
                 <div className="col-sm-6">
-                    <select className={"col-sm-12 " + styles["fieldBase"]} >
+                    <select className={"col-sm-12 " + styles["fieldBase"]} onChange={ (selection => {
+                        if (selection.target.value == "Alle Benutzer") {
+                            this.props[STORE_ENTRIES].setFilterUser(null)
+                        } else {
+                            this.props[STORE_ENTRIES].setFilterUser(selection.target.value)
+                        }
+                    })}>
                         <option value={"Alle Benutzer"}>Alle Benutzer</option>
                         <option value={"Matthias"}>Matthias</option>
                         <option value={"Markus"}>Markus</option>
                         <option value={"Gerhard"}>Gerhard</option>
                         <option value={"Michael"}>Michael</option>
                     </select>
-                    <select className={"col-sm-12 " + styles["fieldBase"]} >
-                        <option value={"AlleKategorien"}>AlleKategorien</option>
-                        <option value={"Transport"}>Transport</option>
-                        <option value={"Freizeit"}>Freizeit</option>
-                        <option value={"Haushalt"}>Haushalt</option>
-                        <option value={"Essen"}>Essen</option>
+                    <select className={"col-sm-12 " + styles["fieldBase"]} onChange={ (selection => {
+                        if (selection.target.value == "Alle Kategorien") {
+                            this.props[STORE_ENTRIES].setFilterCategory(null)
+                        } else {
+                            this.props[STORE_ENTRIES].setFilterCategory(selection.target.value)
+                        }
+                    })}>
+                        <option value={"Alle Kategorien"}>AlleKategorien</option>
+                        <option value={"transport"}>Transport</option>
+                        <option value={"freizeit"}>Freizeit</option>
+                        <option value={"haushalt"}>Haushalt</option>
+                        <option value={"essen"}>Essen</option>
                     </select>
                     <select className={"col-sm-12 " + styles["fieldBase"]} >
                         <option value={"Gesamter Zeitraum"}>Gesamter Zeitraum</option>
