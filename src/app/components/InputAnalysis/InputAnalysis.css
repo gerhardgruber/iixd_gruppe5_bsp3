@@ -1,0 +1,17 @@
+.topContainer {
+    min-height: 400px;
+    margin-left: 45px;
+}
+
+.fieldBase {
+    margin: 0px 0px 10px 0px;
+    min-height: 30px;
+}
+
+.icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
