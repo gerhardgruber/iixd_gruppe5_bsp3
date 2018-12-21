@@ -116,7 +116,7 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
       <div style={{fontSize: '16px', height: '100vh'}}>
         <LoggedInHeader />
         <div className="row">
-          <div className={"col-sm-12"}>
+          <div className={"col-sm-6"}>
             <div className="form-group row">
               <label className="col-sm-4 col-form-label">
                 Titel:
@@ -236,6 +236,15 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
               <label className="form-check-label" style={{paddingLeft: '16px'}}>
                 Weitere Buchung erfassen
               </label>
+            </div>
+          </div>
+          <div className={"col-sm-6"}>
+            <div style={{width: '100%', height: '200px', borderRadius: '3%', border: '1px solid black', textAlign: 'center', paddingTop: '32px'}}>
+              Ziehen Sie eine Datei in diesen Bereich (PDF oder Bild)
+              <br />
+              <br />
+              <br />
+              <span className="far fa-file" style={{fontSize: '64px'}} />
             </div>
           </div>
         </div>
