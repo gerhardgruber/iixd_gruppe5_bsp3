@@ -16,8 +16,8 @@ export default class DataTable extends React.Component<any, DataTableState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            renderEntryGroups: Array.apply(null, Array(this.props[STORE_ENTRIES].getEntriesGroupedByMonth().length))
-                .map(() => true)
+            renderEntryGroups: (Array.apply(null, Array(this.props[STORE_ENTRIES].getEntriesGroupedByMonth().length - 1))
+                .map(() => false)).concat(true)
         } as DataTableState;
     }
 

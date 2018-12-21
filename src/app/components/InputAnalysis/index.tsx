@@ -11,11 +11,11 @@ export default class InputAnalysis extends React.Component<any> {
         return (
             <div className={"col-sm-12 " + styles["topContainer"]}>
                 <i className={"col-sm-1 glyphicon glyphicon-search " + styles["icon"]} />
-                <input id={"textFilter"} className={"col-sm-10 " + styles["fieldBase"]} type={"text"} value={"Titel oder Beschreibung.. "} />
+                <input id={"textFilter"} className={"col-sm-10 " + styles["fieldBase"]} type={"text"} value={"Titel oder Beschreibung.. "} onChange={() => null}/>
                 <i className={"col-sm-1 fa fa-dollar " + styles["icon"]} />
-                <input className={"col-sm-10 " + styles["fieldBase"]} type={"text"} value={"Max Betrag"} />
+                <input className={"col-sm-10 " + styles["fieldBase"]} type={"text"} value={"Max Betrag"} onChange={() => null}/>
                 <i className={"col-sm-1 fa fa-dollar " + styles["icon"]} />
-                <input className={"col-sm-10 " + styles["fieldBase"]} type={"text"} value={"Min Betrag"} />
+                <input className={"col-sm-10 " + styles["fieldBase"]} type={"text"} value={"Min Betrag"} onChange={() => null}/>
                 <i className={"col-sm-1 glyphicon glyphicon-user " + styles["icon"]} />
                 <select className={"col-sm-10 " + styles["fieldBase"]} onChange={ (selection => {
                     if (selection.target.value == "Alle Benutzer") {
