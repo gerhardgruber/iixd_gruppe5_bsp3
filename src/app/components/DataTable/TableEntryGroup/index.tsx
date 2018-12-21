@@ -9,7 +9,6 @@ let moment = require('moment');
 
 export default class TableEntryGroup extends React.Component<any> {
     render() {
-        debugger
         return <div className={styles["table-entry-group"] + " row"} onClick={this.props.onClick}>
             <div className="col-sm-2">
                 <div>
