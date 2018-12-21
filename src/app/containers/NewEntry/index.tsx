@@ -88,7 +88,6 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
         </div>
     }
 
-    debugger
     if ( this.state.amountInvalid || this.state.amount.length == 0 || this.state.titel.length == 0)
     {
       save =
