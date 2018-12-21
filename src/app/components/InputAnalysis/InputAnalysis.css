@@ -1,10 +1,10 @@
 .topContainer {
-    min-height: 350px;
+    min-height: 400px;
+    margin-left: 45px;
 }
 
 .fieldBase {
     margin: 0px 0px 10px 0px;
-    min-height: 20px;
     min-height: 30px;
 }
 
