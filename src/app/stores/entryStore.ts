@@ -4,6 +4,12 @@ let _ = require('lodash');
 let moment = require('moment');
 
 export class EntryStore {
+    public colors = {
+        transport: [ "#6D4C41", "#A1887F" ],
+        freizeit: [ "#43A047", "#81C784" ],
+        essen: [ "#e53935", "#e57373" ],
+        haushalt: [ "#5E35B1", "#9575CD" ]
+    };
 
     @observable
     filterCategory: string;

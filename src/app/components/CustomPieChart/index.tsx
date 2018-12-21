@@ -41,7 +41,7 @@ export default class CustomPieChart extends React.Component<any, pieState> {
                 <PieChart width={540} height={400}>
                     <Pie data={pieData} dataKey="price" nameKey="category" cx="57%" cy="50%" innerRadius={100} outerRadius={150} fill="#8884d8" label>
                         {pieData.map((entry, index) => (
-                            <Cell key = {index} fill={index === this.state.clickedSegment ? "#4881ea" : "#6495ED"}
+                            <Cell key = {index} fill={this.props.entries.colors[entry.category][index === this.state.clickedSegment ? 1 : 0 ]}
                                 onClick={() => {
                                     this.props[STORE_ENTRIES].setFilterCategory(entry.category);
                                     this.changeColor(entry, index);

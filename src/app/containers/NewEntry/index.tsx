@@ -23,7 +23,8 @@ export interface NewEntryState {
   amountInvalid: boolean,
   amount:        string,
   goback:        boolean,
-  modal:         boolean
+  modal:         boolean,
+  anotherEntry: boolean
 }
 
 @inject(STORE_ROUTER)
@@ -37,7 +38,8 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
     amountInvalid: false,
     amount:        "",
     goback:        false,
-    modal:         false
+    modal:         false,
+    anotherEntry: false
   };
 
   constructor(props: NewEntryProps, context: any) {
@@ -86,6 +88,7 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
         </div>
     }
 
+    debugger
     if ( this.state.amountInvalid || this.state.amount.length == 0 || this.state.titel.length == 0)
     {
       save =
@@ -93,6 +96,12 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
           <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
         </button>
 
+    }
+    else if ( this.state.anotherEntry === true ) {
+      save =
+          <button className={styles["customButton"]}>
+            <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
+          </button>
     }
     else
     {
@@ -217,6 +226,16 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
                   <option>Benutzerdefiniert</option>
                 </select>
               </div>
+            </div>
+            <div className="form-check">
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" onChange={() => {
+                this.setState({
+                  anotherEntry: !this.state.anotherEntry
+                })
+              }} />
+              <label className="form-check-label" style={{paddingLeft: '16px'}}>
+                Weitere Buchung erfassen
+              </label>
             </div>
           </div>
         </div>

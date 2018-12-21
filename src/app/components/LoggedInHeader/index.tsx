@@ -27,7 +27,7 @@ export default class LoggedInHeader extends React.Component {
 
     const data = [ {
       name: '',
-      value: 1009.81
+      value: 1087.00
     }, {
       name: '',
       value: 3890.19
@@ -45,7 +45,7 @@ export default class LoggedInHeader extends React.Component {
           <tr style={{heigth: '50%'}}>
             <td rowSpan={2}>
               <PieChart width={30} height={30}>
-                <Pie data={data} isAnimationActive={false} cx={10} cy={10} outerRadius={10} fill="#8884d8">
+                <Pie dataKey="value" data={data} isAnimationActive={false} cx={10} cy={10} outerRadius={10} fill="#8884d8">
                   <Cell fill={"red"} />
                   <Cell fill={"green"} />
                 </Pie>
@@ -54,7 +54,7 @@ export default class LoggedInHeader extends React.Component {
             <td>Aktueller Abrechnungszeitraum: {monthNames[new Date().getMonth()]}</td>
           </tr>
           <tr style={{heigth: '50%'}}>
-            <td><b>Ausgegeben: 1009,81 €&nbsp;&nbsp;&nbsp;Übrig: 3.890,19 €</b></td>
+            <td><b>Ausgegeben: 1087,00 €&nbsp;&nbsp;&nbsp;Übrig: 3.890,19 €</b></td>
           </tr>
         </table>
       </div>
