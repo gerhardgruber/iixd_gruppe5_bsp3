@@ -32,7 +32,8 @@ After a few moments, this should be the output:
 ℹ ｢wds｣: webpack output is served from /
 ℹ ｢wds｣: Content not from webpack is served from /Path/to/iixd_gruppe5_bsp3/src
 ℹ ｢wds｣: 404s will fallback to /index.html
-ℹ ｢wdm｣:    864 modules                                                       . ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣:    864 modules                                              
+ℹ ｢wdm｣: Compiled successfully.
 ```
 
 Now you can open a browser and navigate to `http://localhost:3000`
