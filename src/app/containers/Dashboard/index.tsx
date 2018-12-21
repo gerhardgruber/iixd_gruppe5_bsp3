@@ -27,7 +27,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     super(props, context);
   }
 
-
     render() {
         return (
             <div className={"container h-100"}>

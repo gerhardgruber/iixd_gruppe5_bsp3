@@ -33,7 +33,7 @@ export default class LoggedInHeader extends React.Component {
       value: 3890.19
     } ]
 
-    return <div className="row" style={{height: "40px"}}>
+    return <div className="row" style={{height: "40px", fontSize: '16px'}}>
       <div className="col-sm-3" style={{position: 'relative', top: '50%', transform: 'translate(0%, -50%)'}}>
         <Link to="/profile">
           <span className="fa fa-user" style={{paddingRight: '6px'}} />

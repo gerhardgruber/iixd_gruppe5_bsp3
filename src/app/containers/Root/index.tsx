@@ -12,10 +12,11 @@ import '../../../../node_modules/bootstrap/dist/css/bootstrap.css'
 @observer
 export class Root extends React.Component<any, any> {
   renderDevTool() {
-    if (process.env.NODE_ENV !== 'production') {
+    return null;
+    /*if (process.env.NODE_ENV !== 'production') {
       const DevTools = require('mobx-react-devtools').default;
       return <DevTools />;
-    }
+    }*/
   }
 
   render() {
