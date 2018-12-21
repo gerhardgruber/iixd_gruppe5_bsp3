@@ -8,6 +8,7 @@ import DataTable from "app/components/DataTable/DataTable";
 import CustomPieChart from "app/components/CustomPieChart";
 import CustomLineChart from "app/components/CustomLineChart";
 import * as styles from './Dashboard.css'
+import {Link} from 'react-router-dom'
 
 export interface DashboardProps extends RouteComponentProps<any> {
     /** MobX Stores will be injected via @inject() **/
@@ -40,12 +41,14 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 </div>
                 <div className="row">
                     <div className={"col-sm-12"}>
-                        <button className={styles["customButton"]}>
-                            <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
-                        </button>
-                        <button className={styles["customButton"]} href="./NewEntry/index">
+                        <Link to="/NewEntry">
+                          <button className={styles["customButton"]}>
+                              <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
+                          </button>
+                        </Link>
+                          <button className={styles["customButton"]}>
                             <span className={"fa fa-bar-chart " + styles["icon"]}/>
-                        </button>
+                          </button>
                     </div>
                 </div>
             </div>

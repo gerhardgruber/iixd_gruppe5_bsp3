@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 
-import { Link } from 'react-router-dom';
 
 import {
   STORE_ROUTER,
 } from 'app/constants';
 import LoggedInHeader from 'app/components/LoggedInHeader';
 import LoggedOutHeader from 'app/components/LoggedOutHeader';
-import { Router } from 'react-router';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 @inject(STORE_ROUTER)

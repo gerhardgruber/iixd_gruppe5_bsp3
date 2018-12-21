@@ -16,7 +16,7 @@ export const App = hot(module)(({ history }) => (
       <Switch>
         <Route path="/analysis" component={Analysis} />
         <Route path="/profile" component={Profile} />
-        <Route path="/newentry" component={NewEntry} />
+        <Route path="/NewEntry" component={NewEntry} />
         <Route exact path="/" component={Dashboard} />
       </Switch>
     </Router>
