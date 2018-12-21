@@ -10,13 +10,15 @@ import Profile from './containers/Profile';
 
 // render react DOM
 export const App = hot(module)(({ history }) => (
-  <Root>
-    <Router history={history}>
-      <Switch>
-        <Route path="/analysis" component={Analysis} />
-        <Route path="/profile" component={Profile} />
-        <Route exact path="/" component={Dashboard} />
-      </Switch>
-    </Router>
-  </Root>
+  <div style={{fontSize: '16px'}}>
+    <Root>
+      <Router history={history}>
+        <Switch>
+          <Route path="/analysis" component={Analysis} />
+          <Route path="/profile" component={Profile} />
+          <Route exact path="/" component={Dashboard} />
+        </Switch>
+      </Router>
+    </Root>
+  </div>
 ));
