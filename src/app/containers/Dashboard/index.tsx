@@ -43,7 +43,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                         <button className={styles["customButton"]}>
                             <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
                         </button>
-                        <button className={styles["customButton"]}>
+                        <button className={styles["customButton"]} href="./NewEntry/index">
                             <span className={"fa fa-bar-chart " + styles["icon"]}/>
                         </button>
                     </div>

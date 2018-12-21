@@ -7,7 +7,7 @@ import { Dashboard } from 'app/containers/Dashboard';
 import 'bootstrap/dist/css/bootstrap.css';
 import Analysis from './containers/Analysis';
 import Profile from './containers/Profile';
-import NewEntry from '/containers/NewEntry';
+import NewEntry from './containers/NewEntry';
 
 // render react DOM
 export const App = hot(module)(({ history }) => (
