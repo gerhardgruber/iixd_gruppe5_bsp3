@@ -21,19 +21,17 @@ export const DASHBOARD_TABLE_DATA = [
     {user: "Gerhard", icon: "fa fa-bus", repeat:false, date: "29.10.2018", title: "Bus", price: 2, category:"transport"},
     {user: "Matthias", icon: "fa fa-bus", repeat:false, date: "30.10.2018", title: "Uber", price: 8, category:"transport"},
     {user: "Markus", icon: "fa fa-bus", repeat:false, date: "03.11.2018", title: "Taxi", price: 15, category:"transport"},
-    {user: "Gerhard", icon: "fa fa-bus", repeat:false, date: "04.11.2018", title: "Ticket U-Bahn", price: 2, category:"transport"},
     {user: "Matthias", icon: "fa fa-bus", repeat:false, date: "05.11.2018", title: "Ticket U-Bahn", price: 2, category:"transport"},
     {user: "Michael", icon: "glyphicon glyphicon-home", repeat:true, date: "21.11.2018", title: "Reinigung", price: 60, category:"haushalt"},
     {user: "Markus", icon: "fa fa-bus", repeat:false, date: "06.11.2018", title: "Ticket U-Bahn", price: 2, category:"transport"},
     {user: "Gerhard", icon: "fa fa-bus", repeat:false, date: "29.10.2018", title: "Ticket U-Bahn", price: 2, category:"transport"},
     {user: "Matthias", icon: "fa fa-bus", repeat:false, date: "30.10.2018", title: "Ticket U-Bahn", price: 2, category:"transport"},
     {user: "Markus", icon: "glyphicon glyphicon-cutlery", repeat:false, date: "31.10.2018", title: "Einkauf", price: 45, category:"essen"},
-    {user: "Gerhard", icon: "glyphicon glyphicon-home", repeat:false, date: "01.11.2018", title: "neuer Tisch", price: 250, category:"haushalt"},
+    {user: "Gerhard", icon: "glyphicon glyphicon-home", repeat:false, date: "01.10.2018", title: "neuer Tisch", price: 250, category:"haushalt"},
     {user: "Matthias", icon: "glyphicon glyphicon-home", repeat:false, date: "02.11.2018", title: "lampe", price: 69, category:"haushalt"},
     {user: "Markus", icon: "fa fa-bus", repeat:false, date: "03.11.2018", title: "Benzin für Auto", price: 30, category:"transport"},
     {user: "Gerhard", icon: "glyphicon glyphicon-cutlery", repeat:false, date: "04.11.2018", title: "Essen bestellen für alle", price: 55, category:"essen"},
     {user: "Matthias", icon: "fa fa-futbol", repeat:false, date: "05.11.2018", title: "neues PS4 spiel", price: 60, category:"freizeit"},
-    {user: "Markus", icon: "fa fa-futbol", repeat:false, date: "06.11.2018", title: "Kino", price: 40, category:"freizeit"},
-    {user: "Gerhard", icon: "fa fa-bus", repeat:false, date: "07.11.2018", title: "Ticket U-Bahn", price: 2, category:"transport"}];
+    {user: "Markus", icon: "fa fa-futbol", repeat:false, date: "06.11.2018", title: "Kino", price: 40, category:"freizeit"}];
 
 export const DATE_FORMAT = "DD.MM.YYYY";
