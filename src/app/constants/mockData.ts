@@ -36,4 +36,4 @@ export const DASHBOARD_TABLE_DATA = [
     {user: "Markus", icon: "fa fa-futbol", repeat:false, date: "06.11.2018", title: "Kino", price: 40, category:"freizeit"},
     {user: "Gerhard", icon: "fa fa-bus", repeat:false, date: "07.11.2018", title: "Ticket U-Bahn", price: 2, category:"transport"}];
 
-export const DATE_FORMAT = "dd.mm.yyyy";
+export const DATE_FORMAT = "DD.MM.YYYY";
