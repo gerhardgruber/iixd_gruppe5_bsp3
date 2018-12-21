@@ -47,9 +47,11 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                               <span className={"glyphicon glyphicon-plus " + styles["icon"]}/>
                           </button>
                         </Link>
+                        <Link to="/analysis">
                           <button className={styles["customButton"]}>
                             <span className={"fa fa-bar-chart " + styles["icon"]}/>
                           </button>
+                        </Link>
                     </div>
                 </div>
             </div>
