@@ -5,37 +5,58 @@ import TableEntry from "app/components/DataTable/TableEntry";
 import * as styles from './DataTable.css'
 import TableEntryGroup from "app/components/DataTable/TableEntryGroup";
 
+export interface DataTableState {
+    renderEntryGroups;
+}
+
 @inject(STORE_ENTRIES)
 @observer
-export default class DataTable extends React.Component<any> {
+export default class DataTable extends React.Component<any, DataTableState> {
 
-  renderEntries;
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            renderEntryGroups: Array.apply(null, Array(this.props[STORE_ENTRIES].getEntriesGroupedByMonth().length))
+                .map(() => true)
+        } as DataTableState;
+    }
 
-  constructor(props:any) {
-    super(props);
-    this.renderEntries = Array.apply(null, Array(2))
-        .map(() => true);
-  }
+    render() {
+        let groupCount = 0;
 
-  render() {
+        return <div className={styles["dataTable"] + " " + styles["scrollbar"]} {...this.props}>
+            {this.props[STORE_ENTRIES].getEntriesGroupedByMonth().map(group =>
+                <React.Fragment key={groupCount}>
+                    {
+                        this.renderEntryGroup(group, groupCount++)
+                    }
+                </React.Fragment>)
+            }
+        </div>
+    }
 
-    let i = 0;
+    renderEntryGroup = (group, groupIndex) => {
 
-    let groupCount = 0;
+        if (!this.state.renderEntryGroups[groupIndex])
+            return (this.renderGroupHeader(group, groupIndex));
 
-    return <div className={styles["dataTable"] + " " + styles["scrollbar"]} {...this.props}>
-      {this.props[STORE_ENTRIES].getEntriesGroupedByMonth().map(group =>
-                <React.Fragment key={groupCount++}>
-                  <TableEntryGroup data={group} onClick={this.renderEntries[groupCount] = !this.renderEntries[groupCount]}/>
-                  {
-                    group.map(entry =>
-                        this.renderEntries[groupCount] ?
-                          <TableEntry {...entry} key={i++}/> :
-                          null)
-                  }
-                  </React.Fragment>)
-      }
-    </div>
-  }
+        let i = 0;
+        return <React.Fragment>
+            {
+                this.renderGroupHeader(group, groupIndex)
+            }
+            {
+                group.map(entry =>
+                <TableEntry {...entry} key={i++}/>)
+            }</React.Fragment>;
+    };
 
+    renderGroupHeader = (group, groupIndex) => {
+        return (<TableEntryGroup data={group}
+                                 onClick={(() => {
+                                     let state = this.state;
+                                     state.renderEntryGroups[groupIndex] = !state.renderEntryGroups[groupIndex];
+                                     this.setState(state);
+                                 }).bind(this)}/>);
+    }
 }
