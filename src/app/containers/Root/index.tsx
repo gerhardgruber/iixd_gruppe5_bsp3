@@ -5,7 +5,6 @@ import { inject, observer } from 'mobx-react';
 import {
   STORE_ROUTER,
 } from 'app/constants';
-import LoggedInHeader from 'app/components/LoggedInHeader';
 import LoggedOutHeader from 'app/components/LoggedOutHeader';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.css'
 
@@ -23,7 +22,6 @@ export class Root extends React.Component<any, any> {
     if ( this.props[STORE_ROUTER].loggedIn) {
       return (
         <div className="container">
-          <LoggedInHeader />
           {this.props.children}
           {this.renderDevTool()}
         </div>

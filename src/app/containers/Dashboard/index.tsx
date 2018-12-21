@@ -9,6 +9,7 @@ import CustomPieChart from "app/components/CustomPieChart";
 import CustomLineChart from "app/components/CustomLineChart";
 import * as styles from './Dashboard.css'
 import {Link} from 'react-router-dom'
+import LoggedInHeader from 'app/components/LoggedInHeader';
 
 export interface DashboardProps extends RouteComponentProps<any> {
     /** MobX Stores will be injected via @inject() **/
@@ -30,6 +31,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     render() {
         return (
             <div className={"container h-100"}>
+                <LoggedInHeader />
                 <div className="row">
                     <div className="col-sm-6">
                         <CustomPieChart/>

@@ -54,7 +54,7 @@ export default class LoggedInHeader extends React.Component {
             <td>Aktueller Abrechnungszeitraum: {monthNames[new Date().getMonth()]}</td>
           </tr>
           <tr style={{heigth: '50%'}}>
-            <td><b>Ausgegeben: 109,81 €&nbsp;&nbsp;&nbsp;Übrig: 3.890,19 €</b></td>
+            <td><b>Ausgegeben: 1009,81 €&nbsp;&nbsp;&nbsp;Übrig: 3.890,19 €</b></td>
           </tr>
         </table>
       </div>
