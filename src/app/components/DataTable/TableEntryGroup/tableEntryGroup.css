@@ -1,7 +1,7 @@
 .table-entry-group{
   border: 2px solid;
-  border-color: dimgray;
-  background-color: #e8effc;
+  border-color: #696969;
+  background-color: #64B5F6;
   border-radius: 10px;
   max-width: inherit;
   margin: 2px 2px 2px 2px;
@@ -10,7 +10,7 @@
   font-size: 16px;
 }
 .table-entry-group:hover {
-  background-color: #c0d9fc;
+  background-color: #2196F3;
 }
 .icon{
   font-size: 20px;
