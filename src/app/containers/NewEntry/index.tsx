@@ -10,7 +10,7 @@ import Dropdown from 'reactstrap/lib/Dropdown';
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import DropdownMenu from 'reactstrap/lib/DropdownMenu';
 import DropdownItem from 'reactstrap/lib/DropdownItem';
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export interface NewEntryProps extends RouteComponentProps<any> {
   /** MobX Stores will be injected via @inject() **/
@@ -24,7 +24,9 @@ export interface NewEntryState {
   titelInvalid:  boolean,
   titel:         string,
   amountInvalid: boolean,
-  amount:        string
+  amount:        string,
+  goback:        boolean,
+  modal:         boolean
 }
 
 @inject(STORE_ROUTER)
@@ -36,17 +38,58 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
     titelInvalid:  false,
     titel:         "",
     amountInvalid: false,
-    amount:        ""
+    amount:        "",
+    goback:        false,
+    modal:         false
   };
 
   constructor(props: NewEntryProps, context: any) {
     super(props, context);
   }
 
+  toggle=()=> {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     let save = null
+    let back = null
   
-    if ( this.state.amountInvalid || this.state.amount.length == 0 )
+    if ( this.state.amount.length == 0 && this.state.titel.length == 0 )
+    {
+      back =
+        <Link to="/">
+          <button className={styles["customButton"]}>
+            <span className={"glyphicon glyphicon-chevron-left " + styles["icon"]}/>
+          </button>
+        </Link>
+    }
+    else
+    {
+      console.log(this.state)
+      back =
+        <div>
+          <button className={styles["customButton"]} onClick={ this.toggle } >
+            <span className={"glyphicon glyphicon-chevron-left " + styles["icon"]}/>
+          </button>
+          <Modal fade={false} backdrop={false} isOpen={this.state.modal} toggle={this.toggle}>
+            <ModalHeader >Sicher verlassen?</ModalHeader>
+            <ModalBody>
+              Wollen Sie die getätigten Eingaben tatsächlich verwerfen und zum Dashboard zurückkehren?
+            </ModalBody>
+            <ModalFooter>
+              <Link to="/">
+                <Button color="primary" onClick={ this.toggle }>Ja</Button>{' '}
+              </Link>
+              <Button color="secondary" onClick={ this.toggle }>Nein</Button>
+            </ModalFooter>
+          </Modal>
+        </div>
+    }
+
+    if ( this.state.amountInvalid || this.state.amount.length == 0 || this.state.titel.length == 0)
     {
       save =
         <button disabled className={styles["customButton"]}>
@@ -205,12 +248,9 @@ export default class NewEntry extends React.Component<NewEntryProps, NewEntrySta
               {
                 save
               }
-              <Link to="/">
-                <button className={styles["customButton"]}>
-                  <span className={"glyphicon glyphicon-chevron-left " + styles["icon"]}/>
-                </button>
-              </Link>
-              
+              {
+                back
+              }
           </div>
         </div>
       </div>
