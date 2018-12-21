@@ -78,7 +78,7 @@ export class EntryStore {
 
     getEntriesGroupedByMonth = () => {
         return _.chain(this.getEntriesFiltered())
-            .groupBy(a => moment(a.date, DATE_FORMAT).format("yyyymm"))
+            .groupBy(a => moment(a.date, DATE_FORMAT).format("YYYYMM"))
             .sortBy((a => moment(a.date, DATE_FORMAT)))
             .value();
     }
